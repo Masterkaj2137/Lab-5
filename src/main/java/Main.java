@@ -17,6 +17,7 @@ class Main {
         System.out.println("6. Zaktualizuj wiek studenta");
         System.out.println("7. Wyjście");
         System.out.print("Wybierz opcję: ");
+        //.
 
         int option = scanner.nextInt();
         scanner.nextLine(); 
