@@ -12,7 +12,8 @@ class Main {
         System.out.println("1. Dodaj studenta (imię + wiek + data urodzenia)");
         System.out.println("2. Dodaj studenta z dodatkowymi danymi (imię + wiek + dara urodzenia + kraj)");
         System.out.println("3. Wypisz wszystkich studentów");
-        System.out.println("4. Wyjście");
+        System.out.println("4. Wyszukaj studenta po imieniu");
+        System.out.println("5. Wyjście");
         System.out.print("Wybierz opcję: ");
 
         int option = scanner.nextInt();
@@ -56,7 +57,22 @@ class Main {
             System.out.println(current.ToString());
           }
         }
-        else if(option == 4) {
+
+        else if(option == 4){
+          System.out.print("Podaj imię szukanego studenta: ");
+          String searchName = scanner.nextLine();
+
+          Student foundStudent = s.findStudentByName(searchName);
+
+          if(foundStudent != null){
+            System.out.println("Znaleziono sudenta: " + foundStudent.ToString());
+          }
+            else{
+              System.out.println("Nie znaleziono studenta o danym imieniu.");
+            }
+          }
+      
+        else if(option == 5) {
           System.out.println("Koniec.");
           break;
         }

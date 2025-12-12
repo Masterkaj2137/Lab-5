@@ -31,6 +31,16 @@ public class Service {
   }
 
   public Student findStudentByName(String name) {
+    try {
+      var students = getStudents();
+      for(Student s : students){
+        if(s.GetName().equals(name)){
+          return s;
+        }
+      }
+    } catch (IOException e){
+      return null;
+    }
     return null;
   }
 }
