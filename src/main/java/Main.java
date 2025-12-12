@@ -9,8 +9,8 @@ class Main {
 
       while(true) {
         System.out.println("\n--- MENU ---");
-        System.out.println("1. Dodaj studenta (imię + wiek)");
-        System.out.println("2. Dodaj studenta z dodatkowymi danymi (imię + wiek + kraj)");
+        System.out.println("1. Dodaj studenta (imię + wiek + data urodzenia)");
+        System.out.println("2. Dodaj studenta z dodatkowymi danymi (imię + wiek + dara urodzenia + kraj)");
         System.out.println("3. Wypisz wszystkich studentów");
         System.out.println("4. Wyjście");
         System.out.print("Wybierz opcję: ");
@@ -26,7 +26,10 @@ class Main {
           int age = scanner.nextInt();
           scanner.nextLine();
 
-          s.addStudent(new Student(name, age));
+          System.out.print("Podaj datę urodzenia (dd.mm.rrrr): ");
+          String dateOfBirth = scanner.nextLine();
+
+          s.addStudent(new Student(name, age, dateOfBirth));
           System.out.println("Dodano studenta.");
         }
         else if(option == 2) {
@@ -37,10 +40,13 @@ class Main {
           int age = scanner.nextInt();
           scanner.nextLine();
 
+          System.out.print("Podaj datę urodzenia (dd.mm.rrrr): ");
+          String dateOfBirth = scanner.nextLine();
+
           System.out.print("Podaj kraj: ");
           String country = scanner.nextLine();
 
-          s.addStudent(new Student(name, age, country));
+          s.addStudent(new Student(name, age, dateOfBirth, country));
           System.out.println("Dodano studenta z dodatkowymi danymi.");
         }
         else if(option == 3) {
