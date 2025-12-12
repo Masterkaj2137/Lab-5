@@ -1,5 +1,8 @@
 import java.util.Collection;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Collections;
+import java.util.Comparator;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -126,5 +129,16 @@ public class Service {
 
     reader.close();
     writer.close();
+  }
+
+  public Collection<Student> getStudentsSortedByName() throws IOException{
+    List<Student> students = (List<Student>) getStudents();
+
+    Collections.sort(students, new Comparator<Student>(){
+      public int compare(Student s1, Student s2){
+        return s1.GetName().compareToIgnoreCase(s2.GetName());
+      }
+    });
+    return students;
   }
 }

@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.Collection;
 
 class Main {
   public static void main(String[] args) {
@@ -17,7 +18,8 @@ class Main {
         System.out.println("6. Zaktualizuj wiek studenta");
         System.out.println("7. Zrób backup (eksport)");
         System.out.println("8. Przywróć backup (import)");
-        System.out.println("9. Wyjście");
+        System.out.println("9. Posortuj listę studentów po imieniu");
+        System.out.println("10. Wyjście");
         System.out.print("Wybierz opcję: ");
         // .
 
@@ -117,7 +119,15 @@ class Main {
           System.out.println("Przywrócono dane z kopii zapasowej.");
         }
 
-        else if (option == 9) {
+        else if(option == 9){
+          Collection<Student> sortedStudents = s.getStudentsSortedByName();
+          System.out.println("\n--- Posortowania lista studentów ---");
+          for(Student current : sortedStudents){
+            System.out.println(current.ToString());
+          }
+        }
+
+        else if (option == 10) {
           System.out.println("Koniec.");
           break;
         } else {
