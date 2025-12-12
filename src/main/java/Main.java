@@ -11,7 +11,7 @@ class Main {
       while (true) {
         System.out.println("\n--- MENU ---");
         System.out.println("1. Dodaj studenta (imię + wiek + data urodzenia)");
-        System.out.println("2. Dodaj studenta z dodatkowymi danymi (imię + wiek + dara urodzenia + kraj)");
+        System.out.println("2. Dodaj studenta z dodatkowymi danymi (imię + wiek + data urodzenia + kraj)");
         System.out.println("3. Wypisz wszystkich studentów");
         System.out.println("4. Wyszukaj studenta po imieniu");
         System.out.println("5. Usuń studenta po imieniu");
@@ -70,7 +70,7 @@ class Main {
           Student foundStudent = s.findStudentByName(searchName);
 
           if (foundStudent != null) {
-            System.out.println("Znaleziono sudenta: " + foundStudent.ToString());
+            System.out.println("Znaleziono studenta: " + foundStudent.ToString());
           } else {
             System.out.println("Nie znaleziono studenta o danym imieniu.");
           }
@@ -100,7 +100,7 @@ class Main {
 
             boolean updated = s.updateStudent(updateName, newAge);
             if (updated) {
-              System.out.println("Zaktualizowano wiek student.");
+              System.out.println("Zaktualizowano wiek studenta.");
             } else {
               System.out.println("Błąd podczas aktualizacji wieku.");
             }
@@ -111,7 +111,7 @@ class Main {
 
         else if (option == 7) {
           s.backupDb();
-          System.out.println("Wykonano kipię zapasową (db_backup.txt).");
+          System.out.println("Wykonano kopię zapasową (db_backup.txt).");
         }
 
         else if (option == 8) {
@@ -121,7 +121,7 @@ class Main {
 
         else if(option == 9){
           Collection<Student> sortedStudents = s.getStudentsSortedByName();
-          System.out.println("\n--- Posortowania lista studentów ---");
+          System.out.println("\n--- Posortowana lista studentów ---");
           for(Student current : sortedStudents){
             System.out.println(current.ToString());
           }
