@@ -65,6 +65,30 @@ public class Service {
         b.append(s.ToString());
         b.newLine();
       }
+      b.close(); 
+    }
+    return found;
+  }
+
+  public boolean updateStudent(String name, int newAge) throws IOException{
+    Collection<Student> students = getStudents();
+    boolean found = false;
+
+    for(Student s : students){
+      if(s.GetName().equals(name)){
+        s.SetAge(newAge);
+        found = true;
+        break;
+      }
+    }
+
+    if(found){
+      FileWriter f = new FileWriter("db.txt", false);
+      BufferedWriter b = new BufferedWriter(f);
+      for(Student s : students){
+        b.append(s.ToString());
+        b.newLine();
+      }
       b.close();
     }
     return found;

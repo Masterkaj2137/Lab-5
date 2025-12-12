@@ -5,6 +5,10 @@ public class Student {
   private String DateOfBirth;
   private String Country;
 
+  public void SetAge(int age){
+    Age = age;
+  }
+  
   public Student(String name, int age, String dateOfBirth) {
     Name = name;
     Age = age;
