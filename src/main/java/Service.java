@@ -93,4 +93,38 @@ public class Service {
     }
     return found;
   }
+
+  public void backupDb() throws IOException{
+    FileReader fr = new FileReader("db.txt");
+    BufferedReader reader = new BufferedReader(fr);
+
+    FileWriter fw = new FileWriter("db_backup.txt", false);
+    BufferedWriter writer = new BufferedWriter(fw);
+
+    String line = "";
+    while((line = reader.readLine())!=null){
+      writer.write(line);
+      writer.newLine();
+    }
+
+    reader.close();
+    writer.close();
+  }
+
+  public void restoreDb() throws IOException{
+    FileReader fr = new FileReader("db_backup.txt");
+    BufferedReader reader = new BufferedReader(fr);
+
+    FileWriter fw = new FileWriter("db.txt", false);
+    BufferedWriter writer = new BufferedWriter(fw);
+
+    String line = "";
+    while((line = reader.readLine())!=null){
+      writer.write(line);
+      writer.newLine();
+    }
+
+    reader.close();
+    writer.close();
+  }
 }
