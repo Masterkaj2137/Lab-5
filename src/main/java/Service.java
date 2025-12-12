@@ -43,4 +43,30 @@ public class Service {
     }
     return null;
   }
+
+  public boolean deleteStudent(String name) throws IOException{
+    var students = getStudents();
+    boolean found = false;
+    var studentsToKeep = new ArrayList<Student>();
+
+    for(Student s : students){
+      if(s.GetName().equals(name)&& !found){
+        found = true;
+      }
+      else{
+        studentsToKeep.add(s);
+      }
+    }
+
+    if(found){
+      var f = new FileWriter("db.txt", false);
+      var b = new BufferedWriter(f);
+      for(Student s : studentsToKeep){
+        b.append(s.ToString());
+        b.newLine();
+      }
+      b.close();
+    }
+    return found;
+  }
 }

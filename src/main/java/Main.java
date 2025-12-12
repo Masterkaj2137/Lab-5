@@ -13,7 +13,8 @@ class Main {
         System.out.println("2. Dodaj studenta z dodatkowymi danymi (imię + wiek + dara urodzenia + kraj)");
         System.out.println("3. Wypisz wszystkich studentów");
         System.out.println("4. Wyszukaj studenta po imieniu");
-        System.out.println("5. Wyjście");
+        System.out.println("5. Usuń studenta po imieniu");
+        System.out.println("6. Wyjście");
         System.out.print("Wybierz opcję: ");
 
         int option = scanner.nextInt();
@@ -70,9 +71,22 @@ class Main {
             else{
               System.out.println("Nie znaleziono studenta o danym imieniu.");
             }
+        }
+
+        else if(option == 5){
+          System.out.print("Podaj imię studenta do usunięcia: ");
+          String deleteName = scanner.nextLine();
+          boolean deleted = s.deleteStudent(deleteName);
+
+          if(deleted){
+            System.out.println("Pomyślnie usunięto studenta z listy.");
           }
+          else{
+            System.out.println("Nie znaleziono studenta o danym imieniu.");
+          }
+        }
       
-        else if(option == 5) {
+        else if(option == 6) {
           System.out.println("Koniec.");
           break;
         }
